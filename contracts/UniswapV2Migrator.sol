@@ -21,6 +21,12 @@ contract UniswapV2Migrator is IUniswapV2Migrator {
     // but it's not possible because it requires a call to the v1 factory, which takes too much gas
     receive() external payable {}
 
+    /// function is used to migrate from V1 to V2 uniswap . users can call this function to transfer their tokens 
+    /// out of v1 
+    /// @param token address of the token (because V1 were pairs with a token and ETH) 
+    /// @param amountTokenMin minimum amount of tokens that the user wants to migrate to V2 
+    /// @param amountETHMin minimum amount of ETH that the user wants to migrate
+    /// @param to the addres to transfer the tokens from
     function migrate(address token, uint amountTokenMin, uint amountETHMin, address to, uint deadline)
         external
         override

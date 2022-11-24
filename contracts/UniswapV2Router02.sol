@@ -94,6 +94,9 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         TransferHelper.safeTransferFrom(token, msg.sender, pair, amountToken);
         IWETH(WETH).deposit{value: amountETH}();
         assert(IWETH(WETH).transfer(pair, amountETH));
+        /// mints LP tokens to LP
+        /// -function mint is from the core and its gets the amount1 and amount2 that was sent and 
+        /// calculates the amount to LP tokens to minted
         liquidity = IUniswapV2Pair(pair).mint(to);
         // refund dust eth, if any
         if (msg.value > amountETH) TransferHelper.safeTransferETH(msg.sender, msg.value - amountETH);
