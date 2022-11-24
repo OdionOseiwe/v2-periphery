@@ -20,7 +20,11 @@ The following assumes the use of `node@>=10`.
 `yarn compile`
 
 ## Run Tests
- function removeLiquidity(
+`yarn test`
+
+
+```solidity
+function removeLiquidity(
         address tokenA,
         address tokenB,
         uint liquidity,
@@ -41,9 +45,5 @@ The following assumes the use of `node@>=10`.
         require(amountA >= amountAMin, 'UniswapV2Router: INSUFFICIENT_A_AMOUNT');
         require(amountB >= amountBMin, 'UniswapV2Router: INSUFFICIENT_B_AMOUNT');
     }
-`yarn test`
-
-
-```solidity
 
 ```
